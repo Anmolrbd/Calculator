@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body class="bg-[#E2F6FE]">
     <div class="container h-max w-max m-auto mt-[10%] bg-[#3B4454] p-10 rounded-lg">
-        <p class="h-[70px] border flex justify-end items-end pr-2 pb-2 text-white text-4xl">12</p>
-        <div class="buttonscontainer grid grid-cols-4 grid-rows-5 gap-4 mt-4 relative text-[20px] ">
-            <button class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">AC</button>
-            <button class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">DE</button>
-            <button class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">.</button>
-            <button class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">/</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">7</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">8</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">9</button>
-            <button class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">*</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">4</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">5</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">6</button>
-            <button class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">-</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">1</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">2</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">3</button> 
-            <button class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">-</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">00</button>
-            <button class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">0</button>
-             <button class="text-[#66D1C8]  shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[120px] h-[50px] absolute bottom-[1px] right-[-5px] rounded-md">=</button>
-        </div>
+        <p class="h-[70px] w-[240px] overflow-x-auto border flex justify-end items-end pr-2 pb-2 text-white text-4xl" id="displayvalue">1</p>
+            <div class="w-[240px] bg-[#46505F] p-4 rounded-2xl grid grid-cols-4 gap-3">
+            <button id="AC" class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">AC</button>
+            <button id="DE" class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">DE</button>
+            <button id="." class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">.</button>
+            <button id="/" class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">/</button>
+            <button id="7" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">7</button>
+            <button id="8" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">8</button>
+            <button id="9" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">9</button>
+            <button id="*" class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">*</button>
+            <button id="4" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">4</button>
+            <button id="5" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">5</button>
+            <button id="6" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">6</button>
+            <button id="-" class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">-</button>
+            <button id="1" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">1</button>
+            <button id="2" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">2</button>
+            <button id="3" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">3</button>
+            <button id="+" class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">+</button>
+            <button id="00" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">00</button>
+            <button id="0" class="text-white shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[50px] h-[50px] rounded-md">0</button>
+            <button id="=" class="text-[#66D1C8] shadow-[-6px_-6px_12px_#586273,6px_6px_12px_#2e3644] w-[110px] h-[50px] rounded-md col-span-2">=</button>
+</div>
+
        
     </div>
 </body>
