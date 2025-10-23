@@ -37,6 +37,9 @@ operatorbtns.forEach( btn =>{
 equals.addEventListener('click',()=>{
     if(firstnumber != "" && secondnumber != "" && operator != ""){
         let result = calculateresult(Number(firstnumber),Number(secondnumber),operator)
+        if (typeof result === "number") {
+            result = Number(result.toPrecision(9));
+        }
         firstnumber = "";
         secondnumber = "";
         operator = "";
@@ -56,7 +59,7 @@ function calculateresult(firstnum, secondnum, optor){
                return firstnum * secondnum;
                 break;
             case "/":
-               return (secondnum != 0)? (firstnum / secondnum).toPrecision(9) : "Error" ;
+               return (secondnum != 0)? (firstnum / secondnum) : "Error" ;
                 break;
         
             default:
@@ -71,19 +74,17 @@ AC.addEventListener('click',()=>{
         secondnumber = "";
         operator = "";
 })
-DE.addEventListener('click',()=>{
-    let getvalue = displayvalue.textContent;
-    let arr = String(getvalue);
-    let getarray = Array.from(arr);
-    getarray.pop();
-    console.log(getarray);
-    let finalnumber = Number(getarray.join(""));
-    console.log(finalnumber)
-    displayvalue.textContent = finalnumber;
-    if(displayvalue.textContent == "0") {
-        firstnumber = "";
-        secondnumber = "";
+DE.addEventListener('click', () => {
+    if (secondnumber) {
+        secondnumber = secondnumber.slice(0, -1);
+        displayvalue.textContent = secondnumber 
+            ? `${firstnumber} ${operator} ${secondnumber}` 
+            : `${firstnumber} ${operator}`;
+    } else if (operator) {
         operator = "";
-        displayvalue.textContent = "";
+        displayvalue.textContent = firstnumber;
+    } else if (firstnumber) {
+        firstnumber = firstnumber.slice(0, -1);
+        displayvalue.textContent = firstnumber || "0";
     }
-})
+});
