@@ -56,7 +56,7 @@ function calculateresult(firstnum, secondnum, optor){
                return firstnum * secondnum;
                 break;
             case "/":
-               return (secondnum != 0)? firstnum / secondnum : "Error" ;
+               return (secondnum != 0)? (firstnum / secondnum).toPrecision(9) : "Error" ;
                 break;
         
             default:
