@@ -60,8 +60,24 @@ function calculateresult(firstnum, secondnum, optor){
                 break;
         
             default:
-            displayvalue.textContent = "Error"
+            displayvalue.textContent = "Error" ;
                 break;
         }
 
 }
+AC.addEventListener('click',()=>{
+    displayvalue.textContent = "";
+    firstnumber = "";
+        secondnumber = "";
+        operator = "";
+})
+DE.addEventListener('click',()=>{
+    let getvalue = displayvalue.textContent;
+    let arr = String(getvalue);
+    let getarray = Array.from(arr);
+    getarray.pop();
+    console.log(getarray);
+    let finalnumber = Number(getarray.join(""));
+    console.log(finalnumber)
+    displayvalue.textContent = finalnumber;
+})
