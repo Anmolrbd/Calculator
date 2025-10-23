@@ -80,4 +80,10 @@ DE.addEventListener('click',()=>{
     let finalnumber = Number(getarray.join(""));
     console.log(finalnumber)
     displayvalue.textContent = finalnumber;
+    if(displayvalue.textContent == "0") {
+        firstnumber = "";
+        secondnumber = "";
+        operator = "";
+        displayvalue.textContent = "";
+    }
 })
